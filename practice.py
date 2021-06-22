@@ -1,5 +1,8 @@
 # exercitiu posibil sting-uri MID
 
+import sys
+
+# biblio ptr max value
 list1 = ['Maria', 'Ioan', 'Roxana', 'Gheorghe', 'Ana', 'Georgia', 'Ioan', 'Roxana', 'Maria', 'Ionel', 'Roxana', 'Ioan',
          'Gheorghe', 'Xenia']
 
@@ -13,13 +16,15 @@ def sort_by_name(list2):
 # functie nr aparitii al fiecarui nume din lista
 def numar_aparitii(list2):
     # SHORT BODY aparitii = dict((i, list2.count(i)) for i in list2)
+    aparitii = {}
     for i in list2:
         aparitii[i] = list2.count(i)
     return aparitii
 
 
 # functie cel mai frecvent nume din lista
-def most_frequent(aparitii):
+def most_frequent(list2):
+    aparitii = numar_aparitii(list2)
     max_freq = 0
     max_name = ''
     lista_most_freq = []
@@ -40,10 +45,10 @@ def most_frequent(aparitii):
 
 
 # functie cel mai putin frecvent nume din lista
-import sys
 
 
-def less_frequent(aparitii):
+def less_frequent(list2):
+    aparitii = numar_aparitii(list2)
     min_freq = sys.maxsize
     min_name = ''
     lista_less_freq = []
@@ -63,8 +68,7 @@ def less_frequent(aparitii):
         return min_name
 
 
-aparitii = {}
 print(sort_by_name(list1))
 print(numar_aparitii(list1))
-print(most_frequent(aparitii))
-print(less_frequent(aparitii))
+print(most_frequent(list1))
+print(less_frequent(list1))
